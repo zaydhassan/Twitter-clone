@@ -7,12 +7,18 @@ import {
   getAllTweets,
   getUserTweets,
   getExploreTweets,
+  updateTweet
+  
 } from "../controllers/tweet.js";
+
 
 const router = express.Router();
 
 // Create a Tweet
 router.post("/", verifyToken, createTweet);
+
+//Edit a Tweet
+router.put("/:id", verifyToken, updateTweet);
 
 // Delete a Tweet
 router.delete("/:id", verifyToken, deleteTweet);
@@ -28,4 +34,7 @@ router.get("/user/all/:id", getUserTweets);
 
 //explore
 router.get("/explore", getExploreTweets);
+
+
+
 export default router;

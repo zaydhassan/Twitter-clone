@@ -25,6 +25,23 @@ export const deleteTweet = async (req, res, next) => {
   }
 };
 
+export const updateTweet = async (req, res, next) => {
+  try {
+    const tweet = await Tweet.findById(req.params.id);
+    if (tweet.userId === req.body.id) {
+      const updatedTweet = await Tweet.findByIdAndUpdate(req.params.id, {
+        description: req.body.description
+      }, { new: true }); // return the updated document
+      res.status(200).json(updatedTweet);
+    } else {
+      handleError(403, "You can't edit this tweet"); // Forbidden
+    }
+  } catch (err) {
+    handleError(500, err);
+  }
+};
+
+
 export const likeOrDislike = async (req, res, next) => {
   try {
     const tweet = await Tweet.findById(req.params.id);

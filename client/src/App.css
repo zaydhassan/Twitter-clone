@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+    background-color: black;
+    color: blueviolet; /* This is to ensure text is visible against the black background */
+}

@@ -87,7 +87,7 @@ const Profile = () => {
               </button>
             ) : (
               <button
-                className="px-4 -y-2 bg-blue-500 rounded-full text-white"
+                className="px-4 -y-2 bg-green-500 rounded-full text-white"
                 onClick={handleFollow}
               >
                 Follow
